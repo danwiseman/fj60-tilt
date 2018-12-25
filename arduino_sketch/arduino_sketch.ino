@@ -72,6 +72,43 @@ void loop() {
 }
 
 
+// determines the image to use based on the angle sent
+const unsigned char angled_front_bitmap(int angle) {
+  switch (angle) {
+  case 0 ... 4:
+    return frontlevel;
+    break;
+  case 5 ... 9:
+    return front5d;
+    break;
+  case 10 ... 14:
+    return front10d;
+    break;
+  case 15 ... 19:
+    return front15d;
+    break;
+  case 20 ... 24:
+    return front20d;
+    break;
+  case 25 ... 29:
+    return front25d;
+    break;
+  case 30 ... 34:
+    return front30d;
+    break;
+  case 35 ... 90:
+    return front35d;
+    break;
+
+  default:
+    return frontlevel;
+    break;
+}
+
+
+}
+
+
 // draw the bitmaps
 void draw_front_img(const unsigned char bitmap[]) {
   //display.clearDisplay();
