@@ -71,6 +71,15 @@ void loop() {
 
 }
 
+int get_current_front_angle() {
+
+
+  return 5;
+}
+
+int get_current_profile_angle() {
+  return 10;
+}
 
 // determines the image to use based on the angle sent
 const unsigned char angled_front_bitmap(int angle) {
@@ -129,4 +138,8 @@ void draw_profile_img(const unsigned char bitmap[]) {
     (display.height() - LC_IMG_HEIGHT) / 2 + 64,
     bitmap, LC_IMG_WIDTH, LC_IMG_HEIGHT, 1);
 
+}
+
+void draw_angle_text(int front_angle, int profile_angle){
+  
 }
