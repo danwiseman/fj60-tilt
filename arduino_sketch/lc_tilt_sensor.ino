@@ -118,7 +118,7 @@ const unsigned char angled_front_bitmap(int angle) {
 }
 
 
-// draw the bitmaps
+// draw the front image that is passed
 void draw_front_img(const unsigned char bitmap[]) {
   //display.clearDisplay();
 
@@ -129,7 +129,7 @@ void draw_front_img(const unsigned char bitmap[]) {
 
 }
 
-
+// draw the profile image that is passed
 void draw_profile_img(const unsigned char bitmap[]) {
   //display.clearDisplay();
 
@@ -140,6 +140,19 @@ void draw_profile_img(const unsigned char bitmap[]) {
 
 }
 
+// draw the angle text below the image
 void draw_angle_text(int front_angle, int profile_angle){
-  
+
+  display.setTextSize(1);      // Normal 1:1 pixel scale
+  display.setTextColor(WHITE); // Draw white text
+  display.setCursor(32, 25);     // Start under the images
+  display.cp437(true);         // Use full 256 char 'Code Page 437' font
+
+  display.write(front_angle + (char)223);
+
+  display.setCursor(32, 87);
+
+  display.write(profile_angle + (char)223);
+
+
 }
