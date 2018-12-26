@@ -123,8 +123,8 @@ void draw_front_img(const unsigned char bitmap[]) {
   //display.clearDisplay();
 
   display.drawBitmap(
-    (display.width()  - LC_IMG_WIDTH ) / 2,
-    (display.height() - LC_IMG_HEIGHT) / 2,
+    0,
+    0,
     bitmap, LC_IMG_WIDTH, LC_IMG_HEIGHT, 1);
 
 }
@@ -134,8 +134,8 @@ void draw_profile_img(const unsigned char bitmap[]) {
   //display.clearDisplay();
 
   display.drawBitmap(
-    (display.width()  - LC_IMG_WIDTH ) / 2 + 64,
-    (display.height() - LC_IMG_HEIGHT) / 2 + 64,
+    64,
+    0,
     bitmap, LC_IMG_WIDTH, LC_IMG_HEIGHT, 1);
 
 }
