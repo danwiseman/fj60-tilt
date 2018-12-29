@@ -62,6 +62,8 @@ void setup() {
   draw_front_img(frontlevel);
   draw_profile_img(profilelevel);
 
+  draw_angle_text(20, 10);
+  
   display.display();
 
 }
