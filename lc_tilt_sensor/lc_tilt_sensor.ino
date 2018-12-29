@@ -150,11 +150,13 @@ void draw_angle_text(int front_angle, int profile_angle){
   display.setCursor(24, 56);     // Start under the images
   display.cp437(true);         // Use full 256 char 'Code Page 437' font
 
-  display.write(front_angle + (char)223);
+  display.write(front_angle);
+  display.write((char)248);
 
   display.setCursor(88, 56);
 
-  display.write(profile_angle + (char)223);
+  display.write(profile_angle);
+  display.write((char)248);
 
 
 }
