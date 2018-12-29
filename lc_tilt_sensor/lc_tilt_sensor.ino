@@ -62,6 +62,8 @@ void setup() {
   draw_front_img(frontlevel);
   draw_profile_img(profilelevel);
 
+  draw_angle_text(20, 10);
+
   display.display();
 
 }
@@ -145,14 +147,16 @@ void draw_angle_text(int front_angle, int profile_angle){
 
   display.setTextSize(1);      // Normal 1:1 pixel scale
   display.setTextColor(WHITE); // Draw white text
-  display.setCursor(32, 25);     // Start under the images
+  display.setCursor(24, 56);     // Start under the images
   display.cp437(true);         // Use full 256 char 'Code Page 437' font
 
-  display.write(front_angle + (char)223);
+  display.print(front_angle);
+  display.write((char)248);
 
-  display.setCursor(32, 87);
+  display.setCursor(88, 56);
 
-  display.write(profile_angle + (char)223);
+  display.print(profile_angle);
+  display.write((char)248);
 
 
 }
