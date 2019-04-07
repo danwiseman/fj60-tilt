@@ -93,7 +93,7 @@ void loop() {
   display.clearDisplay();
 
 
-  update_images((int) event.orientation.y), (int) event.orientation.z));
+  update_images((int) event.orientation.y, (int) event.orientation.z);
   draw_angle_text(event.orientation.y, event.orientation.z);
   display.display();
   delay(1000);
@@ -126,6 +126,33 @@ void update_images(int front_angle, int profile_angle) {
       break;
     case 30 ... 34:
       draw_front_img(front30d);
+      break;
+    case 35 .. 90:
+      draw_front_img(front35d);
+      break;
+    case -1 ... -4:
+      draw_front_img(frontlevel);
+      break;
+    case -5 ... -9:
+      draw_front_img(front5p);
+      break;
+    case -10 ... -14:
+      draw_front_img(front10p);
+      break;
+    case -15 ... -19:
+      draw_front_img(front15p);
+      break;
+    case -20 ... -24:
+      draw_front_img(front20p);
+      break;
+    case -25 ... -29:
+      draw_front_img(front25p);
+      break;
+    case -30 ... -34:
+      draw_front_img(front30p);
+      break;
+    case -35 ... -90:
+      draw_front_img(front35p);
       break;
     default:
       draw_front_img(frontlevel);
