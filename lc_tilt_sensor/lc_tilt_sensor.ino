@@ -90,7 +90,11 @@ void loop() {
   sensors_event_t event;
   bno.getEvent(&event);
 
+  display.clearDisplay();
+
   draw_angle_text(event.orientation.x, event.orientation.y);
+  draw_front_img(angled_front_bitmap((int) event.orientation.x));
+  draw_profile_img(angled_profile_bitmap((int) event.orientation.y));
 
   display.display();
   delay(500);
@@ -135,6 +139,40 @@ const unsigned char angled_front_bitmap(int angle) {
 
 }
 
+const unsigned char angled_profile_bitmap(int angle) {
+  switch (angle) {
+  case 0 ... 4:
+    return profilelevel;
+    break;
+  case 5 ... 9:
+    return profile5f;
+    break;
+  case 10 ... 14:
+    return profile10f;
+    break;
+  case 15 ... 19:
+    return profile15f;
+    break;
+  case 20 ... 24:
+    return profile20f;
+    break;
+  case 25 ... 29:
+    return profile25f;
+    break;
+  case 30 ... 34:
+    return profile30f;
+    break;
+  case 35 ... 90:
+    return profile35f;
+    break;
+
+  default:
+    return frontlevel;
+    break;
+}
+
+
+}
 
 // draw the front image that is passed
 void draw_front_img(const unsigned char bitmap[]) {
