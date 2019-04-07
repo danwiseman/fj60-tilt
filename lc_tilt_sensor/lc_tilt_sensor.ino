@@ -92,10 +92,10 @@ void loop() {
 
   display.clearDisplay();
 
-  draw_angle_text(event.orientation.y, event.orientation.z);
-  draw_front_img(angled_front_bitmap((int) event.orientation.y));
-  //draw_profile_img(angled_profile_bitmap((int) event.orientation.y));
 
+  draw_front_img(angled_front_bitmap((int) event.orientation.y));
+  draw_profile_img(angled_profile_bitmap((int) event.orientation.y));
+  draw_angle_text(event.orientation.y, event.orientation.z);
   display.display();
   delay(1000);
 
@@ -105,70 +105,11 @@ void loop() {
 
 // determines the image to use based on the angle sent
 const unsigned char angled_front_bitmap(int angle) {
-  switch (angle) {
-  case 0 ... 4:
-    return frontlevel;
-    break;
-  case 5 ... 9:
-    return front5d;
-    break;
-  case 10 ... 14:
-    return front10d;
-    break;
-  case 15 ... 19:
-    return front15d;
-    break;
-  case 20 ... 24:
-    return front20d;
-    break;
-  case 25 ... 29:
-    return front25d;
-    break;
-  case 30 ... 34:
-    return front30d;
-    break;
-  case 35 ... 90:
-    return front35d;
-    break;
-
-  default:
-    return frontlevel;
-    break;
-}
-
-
+  return frontlevel;
 }
 
 const unsigned char angled_profile_bitmap(int angle) {
-  switch (angle) {
-  case 0 ... 4:
-    return profilelevel;
-    break;
-  case 5 ... 9:
-    return profile5f;
-    break;
-  case 10 ... 14:
-    return profile10f;
-    break;
-  case 15 ... 19:
-    return profile15f;
-    break;
-  case 20 ... 24:
-    return profile20f;
-    break;
-  case 25 ... 29:
-    return profile25f;
-    break;
-  case 30 ... 34:
-    return profile30f;
-    break;
-  case 35 ... 90:
-    return profile35f;
-    break;
-
-  default:
-    return frontlevel;
-    break;
+  return profilelevel;
 }
 
 
