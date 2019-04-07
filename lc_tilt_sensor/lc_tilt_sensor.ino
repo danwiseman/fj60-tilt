@@ -93,8 +93,8 @@ void loop() {
   display.clearDisplay();
 
 
-  update_images((int) event.orientation.y, (int) event.orientation.z);
-  draw_angle_text(event.orientation.y, event.orientation.z);
+  update_images((int) event.orientation.y, (int) event.orientation.z - 90.0);
+  draw_angle_text(event.orientation.y, event.orientation.z - 90.0);
   display.display();
   delay(1000);
 
