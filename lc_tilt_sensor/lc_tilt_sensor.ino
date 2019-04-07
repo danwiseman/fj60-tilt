@@ -173,10 +173,7 @@ void update_profile_image(int profile_angle) {
     case 20 ... 29:
       draw_profile_img(profile25f);
       break;
-    case 30 ... 34:
-      draw_profile_img(profile30f);
-      break;
-    case 35 ... 90:
+    case 30 ... 90:
       draw_profile_img(profile35f);
       break;
     case -4 ... -1:
@@ -194,11 +191,8 @@ void update_profile_image(int profile_angle) {
     case -29 ... -20:
       draw_profile_img(profile25r);
       break;
-    case -34 ... -30:
+    case -90 ... -30:
       draw_profile_img(profile30r);
-      break;
-    case -90 ... -35:
-      draw_profile_img(profile35r);
       break;
     default:
       draw_profile_img(profilelevel);
