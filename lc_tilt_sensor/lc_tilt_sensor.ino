@@ -104,7 +104,13 @@ void loop() {
 
 // determines the image to use based on the angle sent
 void update_images(int front_angle, int profile_angle) {
-  // front image
+
+  update_front_image(front_angle);
+  update_profile_image(profile_angle);
+
+}
+
+void update_front_image(int front_angle) {
   switch (front_angle) {
     case 0 ... 4:
       draw_front_img(frontlevel);
@@ -159,9 +165,64 @@ void update_images(int front_angle, int profile_angle) {
       break;
   }
 
-
 }
 
+void update_profile_image(int profile_angle) {
+  switch (profile_angle) {
+    case 0 ... 4:
+      draw_profile_img(profilelevel);
+      break;
+    case 5 ... 9:
+      draw_profile_img(profile5f);
+      break;
+    case 10 ... 14:
+      draw_profile_img(profile10f);
+      break;
+    case 15 ... 19:
+      draw_profile_img(profile15f);
+      break;
+    case 20 ... 24:
+      draw_profile_img(profile20f);
+      break;
+    case 25 ... 29:
+      draw_profile_img(profile25f);
+      break;
+    case 30 ... 34:
+      draw_profile_img(profile30f);
+      break;
+    case 35 .. 90:
+      draw_profile_img(profile35f);
+      break;
+    case -1 ... -4:
+      draw_profile_img(profilelevel);
+      break;
+    case -5 ... -9:
+      draw_profile_img(profile5r);
+      break;
+    case -10 ... -14:
+      draw_profile_img(profile10r);
+      break;
+    case -15 ... -19:
+      draw_profile_img(profile15r);
+      break;
+    case -20 ... -24:
+      draw_profile_img(profile20r);
+      break;
+    case -25 ... -29:
+      draw_profile_img(profile25r);
+      break;
+    case -30 ... -34:
+      draw_profile_img(profile30r);
+      break;
+    case -35 ... -90:
+      draw_profile_img(profile35r);
+      break;
+    default:
+      draw_profile_img(profilelevel);
+      break;
+  }
+
+}
 
 // draw the front image that is passed
 void draw_front_img(const unsigned char bitmap[]) {
