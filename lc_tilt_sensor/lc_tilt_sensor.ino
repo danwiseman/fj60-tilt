@@ -133,7 +133,7 @@ void update_front_image(int front_angle) {
     case 30 ... 34:
       draw_front_img(front30d);
       break;
-    case 35 .. 90:
+    case 35 ... 90:
       draw_front_img(front35d);
       break;
     case -1 ... -4:
@@ -190,7 +190,7 @@ void update_profile_image(int profile_angle) {
     case 30 ... 34:
       draw_profile_img(profile30f);
       break;
-    case 35 .. 90:
+    case 35 ... 90:
       draw_profile_img(profile35f);
       break;
     case -1 ... -4:
