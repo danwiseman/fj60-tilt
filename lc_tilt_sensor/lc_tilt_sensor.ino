@@ -92,12 +92,12 @@ void loop() {
 
   display.clearDisplay();
 
-  draw_angle_text(event.orientation.x, event.orientation.y);
-  draw_front_img(angled_front_bitmap((int) event.orientation.x));
-  draw_profile_img(angled_profile_bitmap((int) event.orientation.y));
+  draw_angle_text(event.orientation.y, event.orientation.z);
+  //draw_front_img(angled_front_bitmap((int) event.orientation.x));
+  //draw_profile_img(angled_profile_bitmap((int) event.orientation.y));
 
   display.display();
-  delay(500);
+  delay(1000);
 
 
 }
