@@ -93,7 +93,7 @@ void loop() {
   display.clearDisplay();
 
 
-  update_front_image((int) event.orientation.y)
+  update_front_image((int) event.orientation.y);
   update_profile_image((int) event.orientation.z - 90.0);
   draw_angle_text(event.orientation.y, event.orientation.z - 90.0);
   display.display();
