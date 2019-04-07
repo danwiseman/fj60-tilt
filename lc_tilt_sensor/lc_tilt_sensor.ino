@@ -18,6 +18,9 @@ dan@daninthe.cloud
 #include <Adafruit_GFX.h>
 #include <Adafruit_SSD1306.h>
 
+#include <Adafruit_BNO055.h>
+#include <utility/imumaths.h>
+
 #include "lcbitmaps.h"
 
 #define SCREEN_WIDTH 128 // OLED display width, in pixels
@@ -32,6 +35,7 @@ dan@daninthe.cloud
 Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT,
   OLED_MOSI, OLED_CLK, OLED_DC, OLED_RESET, OLED_CS);
 
+Adafruit_BNO055 bno = Adafruit_BNO055(55);
 
 #define LC_IMG_HEIGHT 64
 #define LC_IMG_WIDTH  64
@@ -50,6 +54,19 @@ void setup() {
     for(;;); // Don't proceed, loop forever
   }
 
+  Serial.println("Orientation Sensor Test"); Serial.println("");
+
+  /* Initialise the sensor */
+  if(!bno.begin())
+  {
+    /* There was a problem detecting the BNO055 ... check your connections */
+    Serial.print("Ooops, no BNO055 detected ... Check your wiring or I2C ADDR!");
+    while(1);
+  }
+
+  delay(1000);
+
+  bno.setExtCrystalUse(true);
 
   // Show initial display buffer contents on the screen --
   // the library initializes this with an Adafruit splash screen.
@@ -62,7 +79,7 @@ void setup() {
   draw_front_img(frontlevel);
   draw_profile_img(profilelevel);
 
-  draw_angle_text(20, 10);
+  draw_angle_text(0.0, 0.0);
 
   display.display();
 
@@ -70,18 +87,17 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
+  sensors_event_t event;
+  bno.getEvent(&event);
+
+  draw_angle_text(event.orientation.x, event.orientation.y);
+
+  display.display();
+  delay(500);
+
 
 }
 
-int get_current_front_angle() {
-
-
-  return 5;
-}
-
-int get_current_profile_angle() {
-  return 10;
-}
 
 // determines the image to use based on the angle sent
 const unsigned char angled_front_bitmap(int angle) {
@@ -143,19 +159,19 @@ void draw_profile_img(const unsigned char bitmap[]) {
 }
 
 // draw the angle text below the image
-void draw_angle_text(int front_angle, int profile_angle){
+void draw_angle_text(float front_angle, float profile_angle){
 
   display.setTextSize(1);      // Normal 1:1 pixel scale
   display.setTextColor(WHITE); // Draw white text
   display.setCursor(24, 56);     // Start under the images
   display.cp437(true);         // Use full 256 char 'Code Page 437' font
 
-  display.print(front_angle);
+  display.print(front_angle, 1);
   display.write((char)248);
 
   display.setCursor(88, 56);
 
-  display.print(profile_angle);
+  display.print(profile_angle, 1);
   display.write((char)248);
 
 
