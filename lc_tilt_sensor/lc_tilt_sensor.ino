@@ -93,8 +93,7 @@ void loop() {
   display.clearDisplay();
 
 
-  draw_front_img(angled_front_bitmap((int) event.orientation.y));
-  draw_profile_img(angled_profile_bitmap((int) event.orientation.y));
+  update_images((int) event.orientation.y), (int) event.orientation.z));
   draw_angle_text(event.orientation.y, event.orientation.z);
   display.display();
   delay(1000);
@@ -104,16 +103,38 @@ void loop() {
 
 
 // determines the image to use based on the angle sent
-const unsigned char angled_front_bitmap(int angle) {
-  return frontlevel;
+void update_images(int front_angle, int profile_angle) {
+  // front image
+  switch (front_angle) {
+    case 0 ... 4:
+      draw_front_img(frontlevel);
+      break;
+    case 5 ... 9:
+      draw_front_img(front5d);
+      break;
+    case 10 ... 14:
+      draw_front_img(front10d);
+      break;
+    case 15 ... 19:
+      draw_front_img(front15d);
+      break;
+    case 20 ... 24:
+      draw_front_img(front20d);
+      break;
+    case 25 ... 29:
+      draw_front_img(front25d);
+      break;
+    case 30 ... 34:
+      draw_front_img(front30d);
+      break;
+    default:
+      draw_front_img(frontlevel);
+      break;
+  }
+
+
 }
 
-const unsigned char angled_profile_bitmap(int angle) {
-  return profilelevel;
-}
-
-
-}
 
 // draw the front image that is passed
 void draw_front_img(const unsigned char bitmap[]) {
