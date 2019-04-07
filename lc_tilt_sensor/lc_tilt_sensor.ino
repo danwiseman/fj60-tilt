@@ -93,7 +93,8 @@ void loop() {
   display.clearDisplay();
 
 
-  update_images((int) event.orientation.y, (int) event.orientation.z - 90.0);
+  update_front_image((int) event.orientation.y)
+  update_profile_image((int) event.orientation.z - 90.0);
   draw_angle_text(event.orientation.y, event.orientation.z - 90.0);
   display.display();
   delay(1000);
@@ -102,13 +103,7 @@ void loop() {
 }
 
 
-// determines the image to use based on the angle sent
-void update_images(int front_angle, int profile_angle) {
 
-  update_front_image(front_angle);
-  update_profile_image(profile_angle);
-
-}
 
 void update_front_image(int front_angle) {
   switch (front_angle) {
