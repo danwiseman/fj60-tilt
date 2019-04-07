@@ -136,28 +136,28 @@ void update_front_image(int front_angle) {
     case 35 ... 90:
       draw_front_img(front35d);
       break;
-    case -1 ... -4:
+    case -4 ... -1:
       draw_front_img(frontlevel);
       break;
-    case -5 ... -9:
+    case -9 ... -5:
       draw_front_img(front5p);
       break;
-    case -10 ... -14:
+    case -14 ... -10:
       draw_front_img(front10p);
       break;
-    case -15 ... -19:
+    case -19 ... -15:
       draw_front_img(front15p);
       break;
-    case -20 ... -24:
+    case -24 ... -20:
       draw_front_img(front20p);
       break;
-    case -25 ... -29:
+    case -29 ... -25:
       draw_front_img(front25p);
       break;
-    case -30 ... -34:
+    case -34 ... -30:
       draw_front_img(front30p);
       break;
-    case -35 ... -90:
+    case -90 ... -35:
       draw_front_img(front35p);
       break;
     default:
