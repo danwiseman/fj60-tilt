@@ -119,10 +119,7 @@ void update_front_image(int front_angle) {
     case 15 ... 19:
       draw_front_img(front15d);
       break;
-    case 20 ... 24:
-      draw_front_img(front20d);
-      break;
-    case 25 ... 29:
+    case 20 ... 29:
       draw_front_img(front25d);
       break;
     case 30 ... 34:
@@ -143,10 +140,7 @@ void update_front_image(int front_angle) {
     case -19 ... -15:
       draw_front_img(front15p);
       break;
-    case -24 ... -20:
-      draw_front_img(front20p);
-      break;
-    case -29 ... -25:
+    case -29 ... -20:
       draw_front_img(front25p);
       break;
     case -34 ... -30:
